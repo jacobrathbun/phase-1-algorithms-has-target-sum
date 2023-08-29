@@ -1,17 +1,38 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const read = new Set();
+  for (const num of array) {
+    const goalDifference = target - num;
+    if (read.has(goalDifference)) {
+      return true;
+    }
+    read.add(num);
+  }
+  return false;
 }
 
 /* 
-  Write the Big O time complexity of your function here
+  O(n) - it only loops through single array one time
 */
 
 /* 
-  Add your pseudocode here
+  function hasTargetSum(array, target)
+    read = new set
+    for num in array
+      goalDifference = target - num
+      if goalDifference is in read
+        return true
+      add num to read
+    return false
 */
 
 /*
-  Add written explanation of your solution here
+  -The function creates and empty array for all read 
+  numbers to be added
+  -loop iterates through the passed in array
+  -formula determines if there is a sum of numbers in it by
+  subtracting current read number from target number
+  -boolean determines if formula number is in the read array
+  -returns value
 */
 
 // You can run `node index.js` to view these console logs
